@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: app-ingress
+spec:
+  rules:
+    - host: app.example.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: app-service
+              servicePort: 80
+          - path: /coffee
+            backend:
+              serviceName: app-service-coffee
+              servicePort: 80
