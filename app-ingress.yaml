@@ -11,7 +11,3 @@ spec:
             backend:
               serviceName: app-service
               servicePort: 80
-          - path: /coffee
-            backend:
-              serviceName: app-service-coffee
-              servicePort: 80
