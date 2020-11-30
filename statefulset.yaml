@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-headless-svc
+spec:
+  clusterIP: None # <-- Don't forget!!
+  selector:
+    app: stat-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+
+---
+apiVersion: apps/v1
+kind: StatefulSet # <-- claim stateful set
+metadata:
+  name: stat-go-app
+spec:
+  serviceName: app-headless-svc # <-- Set headless service name
+  replicas: 2
+  selector:
+    matchLabels:
+      app: stat-app
+  template:
+    metadata:
+      labels:
+        app: stat-app
+    spec:
+      containers:
+        - name: go-app-container
+          image: kevinyan001/kube-go-app
+          resources:
+            limits:
+              memory: "64Mi"
+              cpu: "50m"
+          ports:
+            - containerPort: 3000
