@@ -20,6 +20,7 @@ spec:
           image: nginx:1.15
           ports:
             - containerPort: 80
+      terminationGracePeriodSeconds: 60 # default 30 seconds
 ---
 kind: Service
 apiVersion: v1
