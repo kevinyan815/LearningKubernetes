@@ -20,6 +20,13 @@ spec:
           image: nginx:1.15
           ports:
             - containerPort: 80
+          lifecycle:
+            preStop:
+              exec:
+                command: [
+                  # Gracefully shutdown nginx
+                  "/usr/sbin/nginx", "-s", "quit"
+                ]
       terminationGracePeriodSeconds: 60 # default 30 seconds
 ---
 kind: Service
