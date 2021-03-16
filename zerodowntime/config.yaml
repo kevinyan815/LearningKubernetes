@@ -24,8 +24,11 @@ spec:
             preStop:
               exec:
                 command: [
-                  # Gracefully shutdown nginx
-                  "/usr/sbin/nginx", "-s", "quit"
+                  "sh", "-c",
+                  # Introduce a delay to the shutdown sequence to wait for the
+                  # pod eviction event to propagate. Then, gracefully shutdown
+                  # nginx.
+                  "sleep 5 && /usr/sbin/nginx -s quit",
                 ]
       terminationGracePeriodSeconds: 60 # default 30 seconds
 ---
