@@ -37,3 +37,14 @@ spec:
     - protocol: TCP
       targetPort: 80
       port: 80
+
+---
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: nginx-pdb
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: nginx
