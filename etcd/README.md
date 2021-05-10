@@ -26,11 +26,11 @@ Create a namespace:
 
 Create the services:
 
-    $ kubectl create -f resources/services.yml -n etcd
+    $ kubectl apply -f resources/services.yml -n etcd
 
 Create the cluster:
 
-    $ cat resources/etcd.yml.tmpl | resources/config.bash | kubectl create -n etcd -f -
+    $ cat resources/etcd.yml.tmpl | resources/config.bash | kubectl apply -n etcd -f -
 
 Verify the cluster's health:
 

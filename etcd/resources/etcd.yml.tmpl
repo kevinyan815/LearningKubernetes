@@ -18,6 +18,9 @@ spec:
       labels:
         component: etcd
     spec:
+      volumes:
+        - name: etcd-storage
+          emptyDir: {}
       containers:
         - name: etcd
           image: quay.io/coreos/etcd:latest
@@ -35,6 +38,9 @@ spec:
               value: "$MINIKUBE_IP"
             - name: MINIKUBE_PORT
               value: "$MINIKUBE_PORT"
+          volumeMounts:
+            - name: etcd-storage
+              mountPath: /var/run/etcd/default.etcd
           command:
             - /bin/sh
             - -ecx
