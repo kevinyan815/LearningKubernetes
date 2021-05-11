@@ -1,5 +1,9 @@
 # volume subPath use configMap:
-#  https://dev.to/joshduffney/kubernetes-using-configmap-subpaths-to-mount-files-3a1i
+#   https://dev.to/joshduffney/kubernetes-using-configmap-subpaths-to-mount-files-3a1i
+# if you want to use etcdctl to get keys that setted through e3w webview, then use:
+#  ETCDCTL_API=3 ./etcdctl --endpoints http://etcd-server-ip:client-port  get root --prefix
+#
+
 ---
 apiVersion: apps/v1
 kind: Deployment
