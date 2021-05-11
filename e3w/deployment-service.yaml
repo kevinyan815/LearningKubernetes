@@ -1,3 +1,5 @@
+# volume subPath use configMap:
+#  https://dev.to/joshduffney/kubernetes-using-configmap-subpaths-to-mount-files-3a1i
 ---
 apiVersion: apps/v1
 kind: Deployment
