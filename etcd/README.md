@@ -7,8 +7,10 @@ etcd.
 Prerequisites
 -------------
 
+
 Update hosts file with:
 
+    // 这一步不必要，可以跳过。
     $(minikube ip) etcd-0.etcd
     $(minikube ip) etcd-1.etcd
     $(minikube ip) etcd-2.etcd
