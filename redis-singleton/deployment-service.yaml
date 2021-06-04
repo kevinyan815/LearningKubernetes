@@ -26,14 +26,27 @@ spec:
             requests:
               cpu: 100m
               memory: 100Mi
+#          command: ["redis-server","/etc/redis/redis.conf"]
+          command:
+            - redis-server
+            - /etc/redis/redis.conf
           ports:
             - containerPort: 6379
           volumeMounts:
+            - name: redis-config
+              mountPath: /etc/redis/redis.conf
+              subPath: redis.conf
             - name: redis-storage
-              mountPath: /data/redis
+              mountPath: /data
       volumes:
         - name: redis-storage
           emptyDir: {}
+        - name: redis-config
+          configMap:
+            name: redis-config
+            items:
+              - key: redis.conf
+                path: redis.conf
 ---
 apiVersion: v1
 kind: Service        # Type of Kubernetes resource
