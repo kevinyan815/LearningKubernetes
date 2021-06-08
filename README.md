@@ -17,3 +17,15 @@ minikube ip
 
 mysql -uroot -puser -h {minikube-ip} -P 30306
 ```
+
+### 安装Redis
+
+- 创建ConfigMap
+```
+kubectl apply -f mysql-singleton/mysql-config.yaml
+```
+
+- 创建调度Redis应用的Deployment和向外提供服务的Service
+```
+kubectl apply -f redis-singleton/deployment-service.yaml
+```
