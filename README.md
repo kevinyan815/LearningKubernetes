@@ -29,3 +29,24 @@ kubectl apply -f mysql-singleton/mysql-config.yaml
 ```
 kubectl apply -f redis-singleton/deployment-service.yaml
 ```
+
+### 安装ETCD
+
+创建命名空间etcd, etcd的资源都放在这个空间下:
+
+    $ kubectl create namespace etcd
+
+创建用到的Services:
+
+    $ kubectl apply -f resources/services.yml -n etcd
+
+创建etcd 集群:
+
+    $ cat resources/etcd.yml.tmpl | resources/config.bash | kubectl apply -n etcd -f -
+
+
+通过minikube ip和nodeport 访问etcd
+
+    $ IP=$(minikube ip)
+    $ PORT=$(kubectl get services -o jsonpath="{.spec.ports[].nodePort}" etcd-client -n etcd)
+    $ ETCDCTL_API=3 ./etcdctl --endpoints ${IP}:${PORT}  get root --prefix
