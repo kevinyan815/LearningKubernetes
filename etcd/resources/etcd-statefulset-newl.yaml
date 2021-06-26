@@ -1,4 +1,4 @@
-# https://sgotti.me/post/kubernetes-persistent-etcd/
+# etcd resource yaml for all kubernetes tools, not only minikube
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -36,9 +36,9 @@ spec:
             - name: SET_NAME
               value: "etcd"
             - name: MINIKUBE_IP
-              value: "$MINIKUBE_IP"
+              value: "127.0.0.1"
             - name: MINIKUBE_PORT
-              value: "$MINIKUBE_PORT"
+              value: "32379"
           volumeMounts:
             - name: etcd-storage
               mountPath: /var/run/etcd/default.etcd

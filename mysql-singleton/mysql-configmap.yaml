@@ -13,6 +13,7 @@ data:
     default-character-set=utf8mb4
     [mysqld]
     character-set-server = utf8mb4
+    default-time-zone='+08:00'
     collation-server = utf8mb4_unicode_ci
     init_connect='SET NAMES utf8mb4'
     skip-character-set-client-handshake = true
