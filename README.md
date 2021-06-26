@@ -66,3 +66,24 @@ IP=$(minikube ip)
 PORT=$(kubectl get services -o jsonpath="{.spec.ports[].nodePort}" etcd-client -n etcd)
 ETCDCTL_API=3 ./etcdctl --endpoints ${IP}:${PORT}  get root --prefix
 ```
+
+### 安装MongoDB
+
+安装的是Standalone（单点）类型的MongoDB
+
+- 创建root用户的用户名和密码的secret对象
+```
+kubectl apply -f mongodb-singleton/mongo-secret.yaml
+```
+
+- 创建Deployment和Service
+```
+kubectl apply -f mongodb-singleton/deployment-service.yaml
+```
+
+- 客户端访问，推荐使用MongoDB Compass
+```
+IP=$(minikube ip) # 假设$IP是 192.168.64.4
+
+mongodb://username:password@192.168.64.4:30017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false
+```
