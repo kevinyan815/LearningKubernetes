@@ -87,3 +87,15 @@ IP=$(minikube ip) # 假设$IP是 192.168.64.4
 
 mongodb://username:password@192.168.64.4:30017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false
 ```
+- 在客户端里为数据库创建用户
+```
+> use my-database
+
+> db.createUser(
+  {
+    user: "my-user",
+    pwd: "passw0rd",
+    roles: [ { role: "readWrite", db: "my-database" } ]
+  }
+)
+```
