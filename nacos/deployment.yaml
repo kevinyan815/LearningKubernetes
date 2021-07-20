@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nacos-deployment
+  labels:
+    app: nacos
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nacos
+  template:
+    metadata:
+      labels:
+        app: nacos
+    spec:
+      containers:
+        - name: nacos
+          image: nacos/nacos-server
+          ports:
+            - containerPort: 8848
+          env:
+            - name: MODE
+              value: "standalone"
+          volumeMounts:
+            - name: nacos-storage
+              mountPath: /home/nacos/data
+      volumes:
+        - name: nacos-storage
+          emptyDir: {}
