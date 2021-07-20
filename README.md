@@ -99,3 +99,18 @@ mongodb://username:password@192.168.64.4:30017/?authSource=admin&readPreference=
   }
 )
 ```
+### 安装Nacos
+- 创建Nacos的Deployment和Service
+
+```shell
+kubectl apply -f nacos/deployment.yaml
+
+kubectl apply -f nacos/service.yaml
+```
+
+- 本地访问Nacos
+```
+# 登录的用户名和密码都是nacos
+
+http://localhost:30848/nacos
+```
