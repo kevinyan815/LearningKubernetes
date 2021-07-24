@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: nacos
-          image: nacos/nacos-server
+          image: nacos/nacos-server:1.4.1
           ports:
             - containerPort: 8848
           env:
