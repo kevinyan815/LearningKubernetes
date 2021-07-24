@@ -1,4 +1,4 @@
-## 改完用NodePort类型的Service，本地用ingress不好使
+## 改用NodePort类型的Service，本地用ingress不好使
 apiVersion: v1
 kind: Service
 metadata:

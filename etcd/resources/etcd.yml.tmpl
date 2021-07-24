@@ -1,4 +1,8 @@
 # https://sgotti.me/post/kubernetes-persistent-etcd/
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: etcd
 ---
 apiVersion: apps/v1
 kind: StatefulSet
