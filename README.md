@@ -118,3 +118,24 @@ kubectl apply -f nacos/service.yaml
 
 http://localhost:30848/nacos
 ```
+
+- 用域名访问
+
+也可以添加Ingress，用域名访问Nacos
+
+创建Ingress
+```shelll
+kubectl apply -f ingress.yaml
+```
+hosts中设置 dev.nacos.com 后可通过域名进行访问
+```
+http://dev.nacos.com/nacos
+```
+如果是在Spring中使用nacos时需要这么配置
+```
+spring.cloud.nacos.discovery.server-addr=127.0.0.1:30848
+// 或者是下面这样，
+//不加端口，Spring Nacos的Jar包默认会去访问8848端口，
+//所以在程序里用ingress配置的域名访问时也要加端口
+spring.cloud.nacos.discovery.server-addr=dev.nacos.com:80
+```
