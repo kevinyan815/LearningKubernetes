@@ -1,3 +1,7 @@
+### Kubernetes学习笔记
+
+[Kubernetes学习笔记-已更新到第25篇，持续更新中······](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUzNTY5MzU2MA==&action=getalbum&album_id=1394839706508148737#wechat_redirect)
+
 ### 安装MySQL
 
 - 创建ConfigMap 把my.cnf里的配置放在ConfigMap对象里，后面作为配置文件会挂载进Pod
