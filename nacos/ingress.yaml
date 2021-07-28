@@ -4,8 +4,7 @@ metadata:
   name: nacos-ingress
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    ingress.kubernetes.io/enable-access-log: "true"
 spec:
   rules:
     - host: dev.nacos.com
