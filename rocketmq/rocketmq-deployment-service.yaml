@@ -1,0 +1,66 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rocketmq
+  labels:
+    app: rocketmq
+spec:
+  type: NodePort
+  ports:
+    - port: 9876
+      targetPort: 9876
+      nodePort: 30876
+      name: rocketmq
+  selector:
+    app: rocketmq
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rocketmq
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rocketmq
+      name: rocketmq
+  template:
+    metadata:
+      labels:
+        app: rocketmq
+        name: rocketmq
+    spec:
+      containers:
+        - name: rocketmq
+          image: apacherocketmq/rocketmq:4.5.0
+          imagePullPolicy: IfNotPresent
+          command: ["sh","mqnamesrv"]
+          ports:
+            - containerPort: 9876
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rocketmq-broker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rocketmq-broker
+      name: rocketmq-broker
+  template:
+    metadata:
+      labels:
+        app: rocketmq-broker
+        name: rocketmq-broker
+    spec:
+      containers:
+        - name: rocketmq-broker
+          image: apacherocketmq/rocketmq:4.5.0
+          imagePullPolicy: IfNotPresent
+          command: ["sh","mqbroker", "-n","rocketmq:9876"]
+          ports:
+            - containerPort: 10909
+            - containerPort: 10911

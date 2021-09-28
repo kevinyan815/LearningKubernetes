@@ -1,0 +1,61 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rocketmq-console-config
+data:
+  users.properties: |
+    rocketmq=rocketmq,1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rocketmq-console
+  labels:
+    app: rocketmq-console
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      name: server
+      targetPort: 8080
+      nodePort: 30875
+  selector:
+    app: rocketmq-console
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rocketmq-console
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rocketmq-console
+      name: rocketmq-console
+  template:
+    metadata:
+      labels:
+        app: rocketmq-console
+        name: rocketmq-console
+    spec:
+      volumes:
+        - name: rocketmq-console-conf
+          configMap:
+            name: rocketmq-console-config
+      containers:
+        - name: rocketmq-console
+          image: aidansu/rocketmq-console:1.0.1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              name: client
+          env:
+            - name: TZ
+              value: Asia/Shanghai
+            - name: JAVA_OPTS
+              value: -Drocketmq.config.namesrvAddr=rocketmq:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false # -Drocketmq.config.loginRequired=true, 是否开启登录验证，如果开启账号：rocketmq；密码：rocketmq
+          volumeMounts:
+            - name: rocketmq-console-conf
+              mountPath: "/tmp/rocketmq-console/data/users.properties"
+              subPath: users.properties
