@@ -143,3 +143,16 @@ spring.cloud.nacos.discovery.server-addr=127.0.0.1:30848
 //所以在程序里用ingress配置的域名访问时也要加端口
 spring.cloud.nacos.discovery.server-addr=dev.nacos.com:80
 ```
+
+### 安装RocketMQ
+- 安装MQ
+```shell
+kubectl apply -f rocketmq/rocketmq-deployment-service.yaml
+```
+- 安装Web Console
+```shell script
+kubectl apply -f rocketmq/rocketmq-console.yaml
+```
+- 访问Web Console
+地址：http://localhost:30875
+
