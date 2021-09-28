@@ -61,6 +61,10 @@ kubectl apply -f resources/services.yml -n etcd
 ```
 cat resources/etcd.yml.tmpl | resources/config.bash | kubectl apply -n etcd -f -
 ```
+备注： 上面的命令只在minikue的k8s上有效，如果用的是Docker Desktop自带的K8s集群，请执行下面的命令
+```
+kubectl apply -f resources/etcd-statefulset-newl.yaml
+```
 
 
 - 从电脑上访问etcd
