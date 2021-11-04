@@ -14,10 +14,16 @@ spec:
     spec:
       containers:
         - name: go-app-container
-          image: kevinyan001/kube-go-app
+          image: kevinyan001/kube-go-app:v0.3
           resources:
             limits:
-              memory: "64Mi"
+              memory: "200Mi"
               cpu: "50m"
           ports:
             - containerPort: 3000
+          volumeMounts:
+            - name: app-storage
+              mountPath: /tmp
+      volumes:
+        - name: app-storage
+          emptyDir: {}

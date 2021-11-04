@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: mysql-db-config
-  namespace: default
+  #namespace: default
   labels:
     app: mysql-db-config
 data:

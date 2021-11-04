@@ -2,11 +2,10 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: app-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    ingress.kubernetes.io/enable-access-log: "true"
 spec:
-  tls:
-    - hosts:
-        - app.example.com
-      secretName: app-secret
   rules:
     - host: app.example.com
       http:
