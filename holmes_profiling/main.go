@@ -9,11 +9,14 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+	"time"
 )
 
 type indexHandler struct {}
 type healthCheckHandler struct {}
 type memProfileTestHandler struct {}
+type cpuExHandler struct {}
+type chanBlockHandler struct {}
 
 func (*indexHandler)ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "Hello World")
@@ -30,16 +33,28 @@ func (*memProfileTestHandler)ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	_ = a
 }
 
+func (*cpuExHandler)ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	go func() {
+		for {
+			time.Sleep(time.Millisecond)
+		}
+	}()
+}
+
+var nilCh chan int
+func (*chanBlockHandler)ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	nilCh <- 1
+}
+
 func main() {
-	//http.HandleFunc("/", index)
-	//http.HandleFunc("/health_check", check)
-	//http.HandleFunc("/1gb-slice", make1GbSlice)
-	//http.ListenAndServe(":3000", nil)
 	fmt.Println("Server starting...")
 	mux := http.NewServeMux()
 	mux.Handle("/", &indexHandler{})
 	mux.Handle("/health-check", &healthCheckHandler{})
 	mux.Handle("/1gb-slice", &memProfileTestHandler{})
+	mux.Handle("/cpu-ex", &cpuExHandler{})
+	mux.Handle("/chan-block", &chanBlockHandler{})
+
 	srv := &http.Server{
 		Addr:              ":3000",
 		Handler:           mux,
@@ -62,9 +77,11 @@ func main() {
 		holmes.WithDumpPath("/tmp", "profile.log"),
 		holmes.WithTextDump(),
 		holmes.WithMemDump(30, 25, 80),
+		holmes.WithCPUDump(20, 25, 80),
+		holmes.WithGoroutineDump(10, 25, 2000),
 		holmes.WithCGroup(true),
 	)
-	h.EnableMemDump().Start()
+	h.EnableMemDump().EnableCPUDump().EnableGoroutineDump().Start()
 
 	select {
 	case err := <-errChan:
