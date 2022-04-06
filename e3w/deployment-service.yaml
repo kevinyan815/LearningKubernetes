@@ -26,6 +26,8 @@ spec:
     spec:
       containers:
         - name: e3w-app-container
+#          for m1 (arm arch) support
+#          image: kevinyan001/e3w-etcd-client:0.01
           image: soyking/e3w:latest
           ports:
             - name: e3w-server-port
