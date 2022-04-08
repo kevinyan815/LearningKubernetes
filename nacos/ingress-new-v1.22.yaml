@@ -1,0 +1,20 @@
+# K8s v1.22 后 Ingress 的apiVersion 和 配置结构有改变，新版用这个配置结构
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nacos-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    ingress.kubernetes.io/enable-access-log: "true"
+spec:
+  rules:
+    - host: dev.nacos.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nacos-service
+                port:
+                  number: 8848
