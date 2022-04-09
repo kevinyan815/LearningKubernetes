@@ -129,7 +129,9 @@ http://localhost:30848/nacos
 
 创建Ingress
 ```shelll
-kubectl apply -f ingress.yaml
+kubectl apply -f nacos/ingress.yaml
+# k8s v1.22 后的版本请使用
+# kubectl apply -f nacos/ingress-new-v1.22.yaml
 ```
 hosts中设置 dev.nacos.com 后可通过域名进行访问
 ```
