@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  namespace: infra
+  name: local-nacos-pv
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 20Gi # 定义pv的大小
+  accessModes:
+    - ReadWriteOnce # 读写模式: 只能被单个节点读写
+  hostPath:
+    path: "/Users/xxx/AppData/K8s-PV/" # 设置PV在主机上存放数据的目录
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  namespace: infra
+  name: nacos-pv-claim
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi # 声明申领的存储的大小
+  volumeName: local-node-pv # 要绑定的PV的名称

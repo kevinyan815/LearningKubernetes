@@ -27,4 +27,6 @@ spec:
               mountPath: /home/nacos/data
       volumes:
         - name: nacos-storage
-          emptyDir: {}
+          emptyDir: {} # emptyDir 类型的数据卷存储在节点的临时目录，Pod 崩溃、集群重启时不会丢数据，但是用命令主动删除Pod后数据卷也就删了
+#          persistentVolumeClaim:    # 推荐用这种替代emptyDir类型的数据卷，pv是独立与Pod在集群中存在的，这样主动删除时Pod，数据还在，以后再创建Pod了还能续上
+#            claimName: node-pv-claim # 个人电脑资源较少，比如用K8s搭建的Nacos，不用了可以先删掉，但是数据保留着，用的时候再创建Nacos续上
