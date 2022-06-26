@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-go-app
+  name: my-go-go-app
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: go-app
+      app: go-go-app
   template:
     metadata:
       labels:
-        app: go-app
+        app: go-go-app
     spec:
       containers:
-        - name: go-app-container
-          image: kevinyan001/kube-go-app:v0.3
+        - name: go-go-app-container
+          image: kevinyan001/kube-go-go-app:v0.3
           resources:
             limits:
               memory: "200Mi"
@@ -22,8 +22,8 @@ spec:
           ports:
             - containerPort: 3000
           volumeMounts:
-            - name: app-storage
+            - name: go-app-storage
               mountPath: /tmp
       volumes:
-        - name: app-storage
+        - name: go-app-storage
           emptyDir: {}

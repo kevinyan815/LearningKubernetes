@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app-deployment
+  name: go-app-deployment
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: app-go
+      app: go-app-go
   template:
     metadata:
       labels:
-        app: app-go
+        app: go-app-go
     spec:
       containers:
-        - name: go-app-container
-          image: registry.cn-hangzhou.aliyuncs.com/docker-study-lab/simple-app-go:v0.2
+        - name: go-go-app-container
+          image: registry.cn-hangzhou.aliyuncs.com/docker-study-lab/simple-go-app-go:v0.2
           resources:
             limits:
               memory: "50Mi"

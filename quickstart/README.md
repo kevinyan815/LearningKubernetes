@@ -1,17 +1,17 @@
 ## 理论部分 Demo
 
 ```shell
-kubectl apply -f nginx-demo/
+kubectl apply -f nginx-k8s-demo/
 ```
 
-## 实践部分 Demo
+## 实践部分 Go Demo
 
 ```shell
 
-app 目录是要打包成镜像的程序和它的Dockerfile
+go-app 目录是要打包成镜像的 Go 程序和它的Dockerfile
 
 
-kubectl apply -f app-demo/
+kubectl apply -f go-go-app-k8s-demo/
 ```
 
 

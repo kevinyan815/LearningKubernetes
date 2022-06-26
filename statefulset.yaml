@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: app-headless-svc
+  name: go-app-headless-svc
 spec:
   clusterIP: None # <-- Don't forget!!
   selector:
-    app: stat-app
+    app: stat-go-app
   ports:
     - protocol: TCP
       port: 80
@@ -15,21 +15,21 @@ spec:
 apiVersion: apps/v1
 kind: StatefulSet # <-- claim stateful set
 metadata:
-  name: stat-go-app
+  name: stat-go-go-app
 spec:
-  serviceName: app-headless-svc # <-- Set headless service name
+  serviceName: go-app-headless-svc # <-- Set headless service name
   replicas: 2
   selector:
     matchLabels:
-      app: stat-app
+      app: stat-go-app
   template:
     metadata:
       labels:
-        app: stat-app
+        app: stat-go-app
     spec:
       containers:
-        - name: go-app-container
-          image: kevinyan001/kube-go-app
+        - name: go-go-app-container
+          image: kevinyan001/kube-go-go-app
           resources:
             limits:
               memory: "64Mi"

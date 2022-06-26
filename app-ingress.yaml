@@ -1,16 +1,16 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: app-ingress
+  name: go-app-ingress
   annotations:
     kubernetes.io/ingress.class: "nginx"
     ingress.kubernetes.io/enable-access-log: "true"
 spec:
   rules:
-    - host: app.example.com
+    - host: go-app.example.com
       http:
         paths:
           - path: /
             backend:
-              serviceName: app-service
+              serviceName: go-app-service
               servicePort: 80
