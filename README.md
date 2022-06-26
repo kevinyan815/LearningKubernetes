@@ -1,4 +1,10 @@
-### Kubernetes学习笔记
+### K8s 快速入门动手实践
+- [理论篇 -- Docker 和 K8s 的恩怨纠葛](https://mp.weixin.qq.com/s/ueaFb68jwZ-VjIcjh7DtXw)
+- [理论篇 -- K8s 长什么样？一文道清它的整体架构](https://mp.weixin.qq.com/s/8Lao8XdBxY5nEfGy6FjT-w)
+- [理论篇 -- K8s也面向对象？学会这三要素，用K8s就跟编程一样](https://mp.weixin.qq.com/s/3_P_fpsC0ZQywlSoqdQ9Sg)
+- [实践篇 -- 从写下第一行代码，到在 K8s 上运行，一个 Go 服务要经历多少步]()
+
+### K8s 学习笔记
 
 [Kubernetes学习笔记-已更新到第25篇，持续更新中······](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUzNTY5MzU2MA==&action=getalbum&album_id=1394839706508148737#wechat_redirect)
 
