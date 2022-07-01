@@ -28,3 +28,6 @@ kubectl apply -f go-app-k8s-demo/
 - kubectl get pod  | deploy | svc | ingress   查看集群中的pod、Deployment、Service、Ingress 资源的状态
 - kubectl describe pod | deploy | svc | ingress  {$objectName} 查看具体资源对象当前的详细信息
 - kubectl delete pod | deploy | svc | ingress  {$objectName} 删除指定对象
+
+**关于本教程使用的任何问题，可关注公众号「网管叨bi叨」进行咨询，另外我还准备了版 PDF 教程资料，可以发送私信「Kubernetes学习资料」领取**。
+![#公众号：网管叨bi叨](https://cdn.learnku.com/uploads/images/202109/24/6964/ZXgD1fAlOU.png!large)
