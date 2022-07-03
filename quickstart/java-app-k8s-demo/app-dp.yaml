@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-app-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: java-app
+  template:
+    metadata:
+      labels:
+        app: java-app
+    spec:
+      containers:
+        - name: java-app-container
+          image: registry.cn-hangzhou.aliyuncs.com/docker-study-lab/simple-app-java:v0.1
+          resources:
+            limits:
+              memory: "500Mi"
+              cpu: "100m"
+          ports:
+            - containerPort: 8080
