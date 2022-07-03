@@ -5,7 +5,7 @@
 - [实践篇 -- 从写下第一行代码，到在 K8s 上运行，一个 Go 服务要经历多少步](https://github.com/kevinyan815/LearningKubernetes/tree/master/quickstart)
   - [示例源码和实操步骤](https://github.com/kevinyan815/LearningKubernetes/tree/master/quickstart#%E5%AE%9E%E8%B7%B5%E9%83%A8%E5%88%86-go-demo)
 - [实践篇 -- 照猫画虎把SpringBoot 搞到 K8s 上，居然翻车咧，真实体验了一把 Go 在云原生里的两点优势]()
-  - [示例源码和实操步骤](https://github.com/kevinyan815/LearningKubernetes/tree/master/quickstart#%E5%AE%9E%E8%B7%B5%E9%83%A8%E5%88%86-go-demo)
+  - [示例源码和实操步骤](https://github.com/kevinyan815/LearningKubernetes/blob/master/quickstart/README.md#%E5%AE%9E%E8%B7%B5%E9%83%A8%E5%88%86-java-demo)
 
 ### K8s 学习笔记
 
