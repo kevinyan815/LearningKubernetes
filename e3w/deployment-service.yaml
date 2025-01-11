@@ -34,7 +34,7 @@ spec:
               containerPort: 8080
           volumeMounts:
             - name: e3w-configmap-volume
-              mountPath: /go-app/conf/config.default.ini
+              mountPath: /app/conf/config.default.ini
               subPath: config.default.ini
       volumes:
         - name: e3w-configmap-volume
