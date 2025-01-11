@@ -21,6 +21,25 @@ docker push registry.cn-hangzhou.aliyuncs.com/docker-study-lab/simple-app-go:v0.
 kubectl apply -f go-app-k8s-demo/
 ```
 
+## 实践部分 Java Demo
+
+```shell
+
+# java-app 目录是要打包成镜像的 SpringBoot 程序和它的Dockerfile
+
+cd ./java-app
+
+# 自己练习的时候，镜像名+标签名 不能跟这个重复
+docker build -t registry.cn-hangzhou.aliyuncs.com/docker-study-lab/simple-app-java:v0.1
+
+docker push registry.cn-hangzhou.aliyuncs.com/docker-study-lab/simple-app-java:v0.1
+
+# java-app-k8s-demo 里是所有 K8s 资源的 YAML 定义
+
+kubectl apply -f java-app-k8s-demo/
+
+```
+
 
 ##  常用命令
 
