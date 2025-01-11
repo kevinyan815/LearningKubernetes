@@ -2,10 +2,11 @@
 - [理论篇 -- Docker 和 K8s 的恩怨纠葛](https://mp.weixin.qq.com/s/ueaFb68jwZ-VjIcjh7DtXw)
 - [理论篇 -- K8s 长什么样？一文道清它的整体架构](https://mp.weixin.qq.com/s/8Lao8XdBxY5nEfGy6FjT-w)
 - [理论篇 -- K8s也面向对象？学会这三要素，用K8s就跟编程一样](https://mp.weixin.qq.com/s/3_P_fpsC0ZQywlSoqdQ9Sg)
-- [实践篇 -- 从写下第一行代码，到在 K8s 上运行，一个 Go 服务要经历多少步](https://github.com/kevinyan815/LearningKubernetes/tree/master/quickstart)
+- [实践篇 -- 从写下第一行代码，到在 K8s 上运行，一个 Go 服务要经历多少步](https://mp.weixin.qq.com/s/rxhOjAbyq_KxtQhAQtdHmg)
   - [示例源码和实操步骤](https://github.com/kevinyan815/LearningKubernetes/tree/master/quickstart#%E5%AE%9E%E8%B7%B5%E9%83%A8%E5%88%86-go-demo)
-- [实践篇 -- 照猫画虎把SpringBoot 搞到 K8s 上，居然翻车咧，真实体验了一把 Go 在云原生里的两点优势]()
+- [实践篇 -- 照猫画虎把SpringBoot 搞到 K8s 上，居然翻车咧，真实体验了一把 Go 在云原生里的两点优势](https://mp.weixin.qq.com/s/RpnWjxUg8E58ddeXvqGthA)
   - [示例源码和实操步骤](https://github.com/kevinyan815/LearningKubernetes/blob/master/quickstart/README.md#%E5%AE%9E%E8%B7%B5%E9%83%A8%E5%88%86-java-demo)
+- [程序解Bug最常用的K8s命令，外加使用窍门](https://mp.weixin.qq.com/s/Ze096f0Utcl84c6gBwrCYw)
 
 ### K8s 学习笔记
 
